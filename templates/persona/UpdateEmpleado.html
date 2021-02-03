@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Lista empleados
+{% endblock titulo %}
+
+{% block content %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="cell"> 
+                <h1>Modificar datos de empleado</h1>
+            </div>
+            <div class="cell">
+                <form class="grid-x grid-margin-x" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="large-6 cell">
+                        <label>Nombres:
+                            {{ form.first_name }}
+                        </label>
+                    </div>
+                    <div class="large-6 cell">
+                        <label>Apellidos:
+                            {{ form.last_name }}
+                        </label>
+                    </div>
+                    <div class="large-6 cell">
+                        <label>Area:
+                            {{ form.job }}
+                        </label>
+                    </div>
+                    <div class="large-6 cell">
+                        <label>Departamento:
+                            {{ form.departamento }}
+                        </label>
+                    </div>
+                    <div class="large-6 cell">
+                        <label>Habilidades:
+                            {{ form.habilidades }}
+                        </label>
+                    </div>
+                    <div class="large-6 cell">
+                        <label>Avatar:
+                            {{ form.avatar }}
+                        </label>
+                    </div>
+                    <div class="cell">
+                        <label>
+                            <Button class="button success" type="submit">Actualizar</Button>
+                        </label>
+                    </div>
+                    
+                </form>
+            </div> 
+        </div>
+    </div>
+    
+{% endblock content %}
+

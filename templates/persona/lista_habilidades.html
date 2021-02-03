@@ -1,0 +1,11 @@
+
+<form method="GET">{% csrf_token %}
+    <input type="text" id="idempleado" name="idempleado" placeholder="Ingrese id de empleado">
+    <button type="submit">Buscar</button>
+</form>
+
+<h2>Habilidades de empleados</h2>
+{% for h in habilidades %}
+    <li>{{h}}</li>
+{% endfor %}
+    

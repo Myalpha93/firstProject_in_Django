@@ -1,0 +1,8 @@
+<h1>Agregar titulo</h1>
+<form method="POST">{% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">AGREGAR</button>
+</form>
+
+<label for="prueba">prueba</label>
+<input type="text" placeholder="Ingrese texto aqui">

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    {{empleado.first_name}} {{empleado.last_name}}
+{% endblock titulo %}
+
+
+{% block content %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <table>
+                <thead>
+                    <th>Detalle de un empleado</th>
+                    <th></th>
+                </thead>
+                <tr>
+                    <td><h3>Nombre</h3></td>
+                    <td><h3>{{empleado.first_name}}</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Apellido</h3></td>
+                    <td><h3>{{empleado.last_name}}</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Departamento</h3></td>
+                    <td><h3>{{empleado.departamento.shor_name}}</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Trabajo</h3></td>
+                    <td><h3>{{empleado.get_job_display}}</h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Avatar</h3></td>
+                {% if empleado.avatar %}
+                    <td><img src="{{empleado.avatar.url}}"></td>
+                {% else %}
+                    <td><h3>No tiene avatar</h3></td>
+                {% endif %}      
+                </tr>
+                <tr>
+                    <td><h3>Habilidades</h3></td>
+                    <td>
+                        <ul class="vertical menu">
+                            {% for h in empleado.habilidades.all %}
+                                <li> <h3>{{h.habilidad}}</h3> </li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock content %}
